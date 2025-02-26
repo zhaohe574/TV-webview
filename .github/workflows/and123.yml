@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-  workflow_dispatch: # 允许手动触发
 
 jobs:
   build:
@@ -22,6 +21,7 @@ jobs:
 
       - name: Build with Gradle
         run: |
-          cd app
           chmod +x gradlew
           ./gradlew assembleDebug
+        env:
+          JAVA_HOME: /opt/hostedtoolcache/Java_Adopt_jdk/11.0.26-4/x64
